@@ -21,26 +21,37 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
+    <!-- 3D Canvas Background -->
+    <canvas id="three-canvas"></canvas>
+
     <!-- Loading Screen -->
     <div class="loading" id="loading">
-        <div class="spinner"></div>
+        <div class="spinner-container">
+            <div class="spinner"></div>
+            <div class="loading-text">Sabily Enterprise</div>
+        </div>
     </div>
 
     <!-- Header -->
     <header class="header" id="header">
         <nav class="nav-container">
-            <div class="logo">Sabily Enterprise</div>
+            <div class="logo-group">
+                <span class="logo">Sabily Enterprise</span>
+                <span class="logo-sub">Dimiliki oleh Sabily Sdn Bhd</span>
+            </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="mobile-toggle" id="mobileToggle">
                 <span></span>
@@ -50,171 +61,224 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <img src="/root/.gemini/antigravity/brain/d44a93b6-3079-4578-9d48-10ba661cfe24/hero_background_1764861015256.png"
-            alt="Smart Home Technology" class="hero-bg">
-        <div class="hero-content">
-            <h1>Transform Your Space with Smart Technology</h1>
-            <p>Leading provider of IoT and Smart Home Device solutions. Experience the future of automation with Sabily
-                Enterprise.</p>
-            <div class="cta-buttons">
-                <button class="btn btn-primary"
-                    onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get
-                    Started</button>
-                <button class="btn btn-secondary"
-                    onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Our
-                    Services</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Our Services</h2>
-                <p>Comprehensive IoT and Smart Home solutions tailored to your needs</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <img src="/root/.gemini/antigravity/brain/d44a93b6-3079-4578-9d48-10ba661cfe24/iot_services_1764861075064.png"
-                        alt="IoT Solutions" class="service-icon">
-                    <h3>IoT Solutions</h3>
-                    <p>Cutting-edge Internet of Things solutions that connect your devices and streamline operations.
-                    </p>
-                    <ul class="service-features">
-                        <li>Device Integration & Connectivity</li>
-                        <li>Real-time Data Analytics</li>
-                        <li>Cloud-based Management</li>
-                        <li>Scalable Infrastructure</li>
-                        <li>Security & Encryption</li>
-                    </ul>
-                </div>
-
-                <div class="service-card animate-on-scroll">
-                    <img src="/root/.gemini/antigravity/brain/d44a93b6-3079-4578-9d48-10ba661cfe24/smart_home_1764861310977.png"
-                        alt="Smart Home Devices" class="service-icon">
-                    <h3>Smart Home Devices</h3>
-                    <p>Transform your home into an intelligent living space with our advanced automation systems.</p>
-                    <ul class="service-features">
-                        <li>Lighting Control Systems</li>
-                        <li>Climate & Temperature Management</li>
-                        <li>Security & Surveillance</li>
-                        <li>Voice Assistant Integration</li>
-                        <li>Energy Monitoring</li>
-                    </ul>
-                </div>
-
-                <div class="service-card animate-on-scroll">
-                    <div
-                        style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); height: 200px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                        <span style="font-size: 4rem;">🔧</span>
-                    </div>
-                    <h3>Installation & Support</h3>
-                    <p>Professional installation and ongoing support to ensure your systems run flawlessly.</p>
-                    <ul class="service-features">
-                        <li>Expert Installation Services</li>
-                        <li>24/7 Technical Support</li>
-                        <li>System Maintenance</li>
-                        <li>Training & Consultation</li>
-                        <li>Warranty & Guarantees</li>
-                    </ul>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content animate-on-scroll">
+                <div class="badge">EST. 2023</div>
+                <h1>Engineering The Digital Future</h1>
+                <p>We craft high-performance Software, design custom IoT solutions, restore & refurbish hardware, personalize Operating Systems, and deploy enterprise Server infrastructures.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                        Start Project <span>→</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+                        Our Expertise
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Why Choose Sabily Enterprise?</h2>
-                <p>We're committed to delivering excellence in every project</p>
+            <div class="hero-scroll-indicator">
+                <span>Scroll Down</span>
+                <div class="mouse-icon"><div class="wheel"></div></div>
             </div>
+        </section>
 
-            <div class="about-content">
-                <div class="about-item animate-on-scroll">
-                    <div class="about-icon">🚀</div>
-                    <h3>Innovation First</h3>
-                    <p>We leverage the latest technologies to provide cutting-edge solutions that keep you ahead of the
-                        curve.</p>
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Core Specializations</h2>
+                    <p>Tailored technology services designed to empower your digital infrastructure.</p>
                 </div>
 
-                <div class="about-item animate-on-scroll">
-                    <div class="about-icon">💎</div>
-                    <h3>Premium Quality</h3>
-                    <p>Only the highest quality devices and components, ensuring reliability and longevity.</p>
-                </div>
-
-                <div class="about-item animate-on-scroll">
-                    <div class="about-icon">🤝</div>
-                    <h3>Customer Focused</h3>
-                    <p>Your satisfaction is our priority. We provide personalized solutions and dedicated support.</p>
-                </div>
-
-                <div class="about-item animate-on-scroll">
-                    <div class="about-icon">🔒</div>
-                    <h3>Secure & Private</h3>
-                    <p>Advanced security measures to protect your data and ensure your privacy at all times.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Get In Touch</h2>
-                <p>Ready to transform your space? Contact us today!</p>
-            </div>
-
-            <div class="contact-content animate-on-scroll">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                <div class="services-grid">
+                    <!-- Software Card -->
+                    <div class="service-card animate-on-scroll" data-shape="cube" data-color="#00d2ff">
+                        <div class="service-header-card">
+                            <span class="service-icon-emoji">💻</span>
+                            <h3>Software</h3>
+                        </div>
+                        <p>High-quality customized application development, web applications, and automated workflow scripts engineered for efficiency.</p>
+                        <ul class="service-features">
+                            <li>Custom Web & App Development</li>
+                            <li>Automation & Workflow Scripts</li>
+                            <li>API Integrations & Custom Tools</li>
+                            <li>Clean, Scalable Codebases</li>
+                        </ul>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    <!-- IoT Card -->
+                    <div class="service-card animate-on-scroll" data-shape="torus" data-color="#39ff14">
+                        <div class="service-header-card">
+                            <span class="service-icon-emoji">📡</span>
+                            <h3>IoT</h3>
+                        </div>
+                        <p>Smart home integration, sensor networks, real-time telemetry, and hardware integrations tailored to automate physical spaces.</p>
+                        <ul class="service-features">
+                            <li>Smart Home Automation</li>
+                            <li>Custom Sensor Deployments</li>
+                            <li>Real-time Telemetry & Data Logs</li>
+                            <li>Hardware-to-Cloud Integration</li>
+                        </ul>
                     </div>
 
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                    <!-- Refurbish PC/Laptop Card -->
+                    <div class="service-card animate-on-scroll" data-shape="helix" data-color="#ff9900">
+                        <div class="service-header-card">
+                            <span class="service-icon-emoji">🔌</span>
+                            <h3>Refurbish PC/Laptop</h3>
+                        </div>
+                        <p>Extending hardware life cycles through component upgrades, deep cleaning, diagnostics, and high-performance rebuilds.</p>
+                        <ul class="service-features">
+                            <li>Hardware Diagnoses & Repairs</li>
+                            <li>Performance Upgrade Paths</li>
+                            <li>Sustainable E-Waste Reduction</li>
+                            <li>Affordable High-Spec Setups</li>
+                        </ul>
                     </div>
 
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required
-                            placeholder="Tell us about your project..."></textarea>
+                    <!-- OS Customize Card -->
+                    <div class="service-card animate-on-scroll" data-shape="knot" data-color="#bd00ff">
+                        <div class="service-header-card">
+                            <span class="service-icon-emoji">⚙️</span>
+                            <h3>OS Customize</h3>
+                        </div>
+                        <p>Tailoring Linux and Windows distributions, debloating core operating environments, and optimizing systems for productivity and gaming.</p>
+                        <ul class="service-features">
+                            <li>Linux & Windows Debloating</li>
+                            <li>System Optimization & Tuning</li>
+                            <li>Tailored UI & Custom Workflows</li>
+                            <li>Secure & Lightweight OS Builds</li>
+                        </ul>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+                    <!-- Server Card -->
+                    <div class="service-card animate-on-scroll" data-shape="grid" data-color="#ff0055">
+                        <div class="service-header-card">
+                            <span class="service-icon-emoji">🖥️</span>
+                            <h3>Server</h3>
+                        </div>
+                        <p>Deploying self-hosted private clouds, Network Attached Storage (NAS), backup schemes, virtualization nodes, and robust office network architectures.</p>
+                        <ul class="service-features">
+                            <li>Self-Hosted Private Clouds</li>
+                            <li>NAS Setup & Automated Backups</li>
+                            <li>Virtualization & Docker Environments</li>
+                            <li>Local & Enterprise Network Design</li>
+                        </ul>
+                    </div>
+
+                    <!-- Networking Card -->
+                    <div class="service-card animate-on-scroll" data-shape="network" data-color="#ffff00">
+                        <div class="service-header-card">
+                            <span class="service-icon-emoji">🌐</span>
+                            <h3>Networking</h3>
+                        </div>
+                        <p>Designing and deploying high-speed wired/wireless networks, fiber optic routing, managed switches, and firewall security structures.</p>
+                        <ul class="service-features">
+                            <li>Enterprise LAN/WAN Deployment</li>
+                            <li>Fiber Optic & Ethernet Routing</li>
+                            <li>Managed Switches & Routing</li>
+                            <li>Network Security & Auditing</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Why Sabily Enterprise?</h2>
+                    <p>Fusing cutting-edge technology with sustainable engineering practices.</p>
+                </div>
+
+                <div class="about-content">
+                    <div class="about-item animate-on-scroll">
+                        <div class="about-icon">⚡</div>
+                        <h3>Modern Performance</h3>
+                        <p>We optimize software and hardware environments to squeeze out maximum efficiency, speed, and responsiveness.</p>
+                    </div>
+
+                    <div class="about-item animate-on-scroll">
+                        <div class="about-icon">♻️</div>
+                        <h3>Eco-Friendly Tech</h3>
+                        <p>Through our refurbishing and optimizing services, we help reduce digital waste and prolong useful lifecycle of hardware assets.</p>
+                    </div>
+
+                    <div class="about-item animate-on-scroll">
+                        <div class="about-icon">🔐</div>
+                        <h3>Self-Hosted & Secure</h3>
+                        <p>We prioritize your digital privacy by implementing offline-first smart solutions, custom private clouds, and secured servers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Start Your Journey</h2>
+                    <p>Discuss your custom software, server, or hardware automation requirements today.</p>
+                </div>
+
+                <div class="contact-content animate-on-scroll">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service-interest">Service of Interest</label>
+                            <select id="service-interest" name="service" required>
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="software">Software Development</option>
+                                <option value="iot">IoT & Smart Systems</option>
+                                <option value="refurbish">PC/Laptop Refurbishing</option>
+                                <option value="os">OS Customization</option>
+                                <option value="server">Private Cloud / Server Deployment</option>
+                                <option value="networking">Networking Infrastructure</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message Details</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your project requirements or system requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="social-links">
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="Twitter">🐦</a>
-                <a href="#" aria-label="LinkedIn">💼</a>
-                <a href="#" aria-label="Instagram">📷</a>
+            <div class="logo-group" style="margin-bottom: 1.5rem;">
+                <span class="logo">Sabily Enterprise</span>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.25rem;">Dimiliki oleh Sabily Sdn Bhd</p>
             </div>
-            <p>&copy; 2025 Sabily Enterprise. All rights reserved.</p>
-            <p style="font-size: 0.875rem; margin-top: 0.5rem;">Transforming spaces with IoT & Smart Home technology</p>
+            <div class="social-links">
+                <a href="#" aria-label="Github">🐙</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="mailto:info@sabily.com" aria-label="Email">✉️</a>
+            </div>
+            <p>&copy; 2023 - 2026 Sabily Enterprise. All rights reserved.</p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem; opacity: 0.6;">Sustainably empowering digital systems since 2023.</p>
         </div>
     </footer>
 
     <script src="app.js"></script>
 </body>
-
 </html>

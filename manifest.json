@@ -1,11 +1,11 @@
 {
   "name": "Sabily Enterprise",
   "short_name": "Sabily",
-  "description": "Leading provider of IoT and Smart Home Device solutions",
+  "description": "Sabily Enterprise - Custom Software, IoT Solutions, Hardware Refurbishing, Custom OS, and Servers",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#0a1f0e",
-  "theme_color": "#11998e",
+  "background_color": "#030712",
+  "theme_color": "#00d2ff",
   "orientation": "portrait-primary",
   "icons": [
     {
